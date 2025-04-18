@@ -132,7 +132,7 @@ int32 UEditorNamingValidatorSubsystem::ValidateAssets( const TArray< FAssetData 
             case ENamingConventionValidationResult::Excluded:
             {
                 data_validation_log.Info()
-                    ->AddToken( FAssetNameToken::Create( asset_data.PackageName.ToString() ) )
+                    ->AddToken( FAssetNameToken::Create( asset_data.GetObjectPathString() ) )
                     ->AddToken( FTextToken::Create( LOCTEXT( "ExcludedNamingConventionResult", "has not been tested based on the configuration." ) ) )
                     ->AddToken( FTextToken::Create( error_message ) );
 
@@ -148,7 +148,7 @@ int32 UEditorNamingValidatorSubsystem::ValidateAssets( const TArray< FAssetData 
             case ENamingConventionValidationResult::Invalid:
             {
                 data_validation_log.Error()
-                    ->AddToken( FAssetNameToken::Create( asset_data.PackageName.ToString() ) )
+                    ->AddToken( FAssetNameToken::Create( asset_data.GetObjectPathString() ) )
                     ->AddToken( FTextToken::Create( LOCTEXT( "InvalidNamingConventionResult", "does not match naming convention." ) ) )
                     ->AddToken( FTextToken::Create( error_message ) );
 
@@ -164,7 +164,7 @@ int32 UEditorNamingValidatorSubsystem::ValidateAssets( const TArray< FAssetData 
                     arguments.Add( TEXT( "ClassName" ), FText::FromString( asset_data.AssetClassPath.ToString() ) );
 
                     data_validation_log.Warning()
-                        ->AddToken( FAssetNameToken::Create( asset_data.PackageName.ToString() ) )
+                        ->AddToken( FAssetNameToken::Create( asset_data.GetObjectPathString() ) )
                         ->AddToken( FTextToken::Create( LOCTEXT( "UnknownNamingConventionResult", "has no known naming convention." ) ) )
                         ->AddToken( FTextToken::Create( FText::Format( LOCTEXT( "UnknownClass", " Class = {ClassName}" ), arguments ) ) );
                 }
