@@ -27,7 +27,7 @@ struct FNamingConventionValidationClassDescription
     TSoftClassPtr< UObject > ClassPath;
 
     UPROPERTY( transient )
-    UClass * Class;
+    TObjectPtr<UClass> Class;
 
     UPROPERTY( config, EditAnywhere )
     FString Prefix;
@@ -79,7 +79,7 @@ public:
     TArray< TSoftClassPtr< UObject > > ExcludedClassPaths;
 
     UPROPERTY( transient )
-    TArray< UClass * > ExcludedClasses;
+    TArray< TObjectPtr<UClass> > ExcludedClasses;
 
     UPROPERTY( config, EditAnywhere )
     FString BlueprintsPrefix;

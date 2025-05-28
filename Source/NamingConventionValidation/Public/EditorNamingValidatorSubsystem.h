@@ -40,7 +40,7 @@ private:
     uint8 AllowBlueprintValidators : 1;
 
     UPROPERTY( Transient )
-    TMap< UClass *, UEditorNamingValidatorBase * > Validators;
+    TMap< TObjectPtr<UClass>, TObjectPtr<UEditorNamingValidatorBase> > Validators;
 
     TArray< FName > SavedPackagesToValidate;
 };

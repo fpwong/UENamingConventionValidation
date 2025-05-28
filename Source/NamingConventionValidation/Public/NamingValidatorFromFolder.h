@@ -38,5 +38,5 @@ protected:
     TArray< FString > IgnoredFolders;
 
     UPROPERTY( EditDefaultsOnly )
-    TArray< UClass * > IgnoredClasses;	
+    TArray< TObjectPtr<UClass> > IgnoredClasses;	
 };
